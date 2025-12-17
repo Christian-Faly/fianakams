@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@e45428)a2ypt1=%zsryle^bju7aqyxr_u&fn=%vco&m5f&d!0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'fianakams.urls'
@@ -85,17 +87,23 @@ WSGI_APPLICATION = 'fianakams.wsgi.application'
 #}
 
 # Important Postgres 14 or higher requered
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'fianakams',
-            'USER': 'postgres',
-            'PASSWORD': 'vony',
-            'HOST': 'localhost',
-            'PORT': '5434',
-    }
-}
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': 'fianakams',
+#             'USER': 'postgres',
+#             'PASSWORD': 'vony',
+#             'HOST': 'localhost',
+#             'PORT': '5434',
+#     }
+# }
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL')
+    )
+}
 
 
 # Password validation
@@ -135,6 +143,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
