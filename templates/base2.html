@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fianakans</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css"> 
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class= entete>
+        <div class= title>
+          <p>Bienvenu Christian</p>
+          <ul class = "rar">
+            <li><a href="">RANDRIANJAFY Chritopher</a></li>
+            <li><a href="">RASOANIRINA Marie Angèle</a></li>
+          </ul>
+        </div>
+        <nav>
+          <ul class = "menu">
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Store</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="cors">
+        <div class="arbre">
+          <!-- {% include "accordeon.html" %} -->
+          <button class="accordion">Section 1</button>
+          <div class="panel">
+            <p>Lorem ipsum </p>
+          </div>
+
+          <button class="accordion">Section 2</button>
+          <div class="panel">
+            <p>Lorem ipsum </p>
+          </div>
+
+          <button class="accordion">Section 3</button>
+          <div class="panel">
+            <p>Lorem ipsum </p>
+          </div>
+        </div>
+        <div class="block">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+    <script src="../static/js/accordeon.js"></script>
+  </body>
+</html>

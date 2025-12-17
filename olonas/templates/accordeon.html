@@ -1,0 +1,46 @@
+{% for olona in taranaka %}
+	{% if olona.1 == 2 %}
+		{%if forloop.counter > 2  %}
+			{%if olona.10 != 0  %}
+				<p>
+					{%if olona.12 == 'Lahy'  %}
+						<a href='/olonas/new_zafy/{{ id_dadabe}}/{{ id_bebe}}/{{olona.10}}/{{olona.11}}'>
+						Manampy zafy {{olona.10}} - {{olona.11}}
+					{% else %}
+						<a href='/olonas/new_zafy/{{ id_dadabe}}/{{ id_bebe}}/{{olona.11}}/{{olona.10}}'>
+						Manampy zafy {{olona.11}} - {{olona.10}}
+					{% endif %} 
+					</a>
+				</p>
+			 	</div>
+			{% endif %} 
+		{% endif %} 
+		<button class="accordion">
+			<a href='/olonas/edit/{{ id_dadabe}}/{{ id_bebe}}/{{olona.0}}'>{{ olona.6}}</a>
+			<span>
+				{%if olona.9 == 'vady?'  %}
+					-
+				{% else %}
+					{%if olona.7 == 'Lahy'  %} 
+						<a href='/olonas/edit/{{olona.0}}/{{olona.8}}/{{olona.0}}'>Ivo</a>
+					{% else %}
+						<a href='/olonas/edit/{{olona.8}}/{{olona.0}}/{{olona.8}}'>Ivo</a>
+					{% endif %}
+				{% endif %}
+			</span>
+			{%if olona.9 != 'vady?'  %}
+				<a href='/olonas/edit/{{ id_dadabe}}/{{ id_bebe}}/{{olona.8}}'>{{ olona.9}}</a>
+			{% else %}
+				<a href='/olonas/new_vady/{{ id_dadabe}}/{{ id_bebe}}/{{olona.0}}/'>{{ olona.9}}</a>
+			{% endif %} 
+		</button>
+		<div class="panel">
+	{% elif olona.1 == 3 %}
+		<p><a href='/olonas/edit/{{ id_dadabe}}/{{ id_bebe}}/{{olona.0}}'>{{ olona.6}}</a></p>
+	{% endif %} 
+{% endfor %}
+
+{% if taranaka|length > 2 %}
+	</div>
+{% endif %} 
+<button class="accordion"><a href='/olonas/new_zanaka/{{ id_dadabe}}/{{ id_bebe}}/'>Manampy zanaka{{taranaka|length}}</a></button>

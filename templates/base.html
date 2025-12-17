@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fianakans</title>
+    {% block extra_head %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css/flex.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% endblock %}
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+        
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <div class= "entete">
+    	<div class = "rar">
+			<!-- <p>------------------ dadan ny lehilahy --------------------</p> -->
+            <p class="izy-tsi-1-1">
+				{%if rar.dada_lahy.1 == 'dadan lahy?'  %} 
+					<a href='/olonas/new_rar/{{ id_dadabe}}/{{ id_bebe}}/lahy/dada'>
+				{% else %}
+					<a href='/olonas/edit/{{ id_dadabe}}/{{ id_bebe}}/{{rar.dada_lahy.0}}'>
+				{% endif %}
+						{{rar.dada_lahy.1}}
+					</a>
+			</p>
+			<!------------------------- Ivo ----------------------------->
+            <p style="max-width:100px"> 
+				{%if rar.dada_lahy.1 == 'dadan lahy?' or rar.neny_lahy.1 == 'nenin lahy?'  %} 
+					<span>---<span>
+				{% else %}
+					<a href='/olonas/edit/{{rar.dada_lahy.0}}/{{rar.neny_lahy.0}}/{{rar.dada_lahy.0}}'>Ivo</a>
+				{% endif %}
+			</p>
+			<!------------------------ Nenin ny lehilahy ------------------->
+            <p class="izy-tsi-1-1">
+				{%if rar.neny_lahy.1 == 'nenyn lahy?'  %} 
+					<a href='/olonas/new_rar/{{ id_dadabe}}/{{ id_bebe}}/lahy/neny'>
+				{% else %}
+					<a href='/olonas/edit/{{ id_dadabe}}/{{ id_bebe}}/{{rar.neny_lahy.0}}'>
+				{% endif %}
+					{{rar.neny_lahy.1}}
+				</a>
+			</p>
+            <!-------------------------- dadan ny Vehivavy ---------------------->
+            <p class="izy-tsi-1-1">
+				{%if rar.dada_vavy.1 == 'dadan vavy?'  %} 
+					<a href='/olonas/new_rar/{{ id_dadabe}}/{{ id_bebe}}/vavy/dada'>
+				{% else %}
+					<a href='/olonas/edit/{{ id_dadabe}}/{{ id_bebe}}/{{rar.dada_vavy.0}}'>
+				{% endif %}
+					{{rar.dada_vavy.1}}
+				</a>
+			</p>
+			<!------------------------------- Ivo ------------------------------->
+            <p style="max-width:100px"> 
+				{%if rar.dada_vavy.1 == 'dadan vavy?' or rar.neny_vavy.1 == 'nenin vavy?'  %} 
+					<span>---<span>
+				{% else %}
+					<a href='/olonas/edit/{{rar.dada_vavy.0}}/{{rar.neny_vavy.0}}/{{rar.dada_vavy.0}}'>Ivo</a>
+            	{% endif %}
+			</p>
+            <!-------------------------- Nenin ny Vehivavy ---------------------->
+            <p class="izy-tsi-1-1">
+				{%if rar.neny_vavy.1 == 'nenyn vavy?'  %} 
+					<a href='/olonas/new_rar/{{ id_dadabe}}/{{ id_bebe}}/vavy/neny'>
+				{% else %}
+					<a href='/olonas/edit/{{ id_dadabe}}/{{ id_bebe}}/{{rar.neny_vavy.0}}'>
+				{% endif %}
+						{{rar.neny_vavy.1}}
+					</a>
+			</p>
+        </div>
+       
+		<div class = "izy-roa">
+            <p class="izy-tsi-1-1">
+				<a href='/olonas/edit/{{taranaka.0.0}}/{{taranaka.1.0}}/{{taranaka.0.0}}'>
+					{{taranaka.0.4}}
+				</a>
+			</p>
+            <p class="izy-tsi-1-1">
+				<a href='/olonas/edit/{{taranaka.0.0}}/{{taranaka.1.0}}/{{taranaka.1.0}}'>
+					{{taranaka.1.4}}
+				</a>
+        </div>
+       
+        <nav class="navbar" style = "display:flex">
+			<p style = "color: #fff;flex-grow:1">Bienvenu Christian</p>
+			<ul class = "menu" style = "color: #fff;flex-grow:4">
+				<li><a href="">Mombamomba</a></li>
+				<li><a href="">Miresaka</a></li>
+				<li><a href="">Mivory</a></li>
+				<li><a href="">Sary</a></li>
+				<li><a href="">Tsingeritaona</a></li>
+			</ul>
+        </nav>
+      </div>
+      <div class="cors">
+        <div class="arbre">
+          {% include 'accordeon.html' %}
+        </div>
+        <div class="block">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/accordeon.js' %}"></script>
+  </body>
+</html>

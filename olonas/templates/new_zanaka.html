@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+	<p>izy</p>
+	<form method ='post' action ='/olonas/new_zanaka/{{id_dadabe}}/{{id_bebe}}/'>
+		{% csrf_token %}
+		<table>
+	        {% for field in form %}
+	            <tr>
+	                <td><label for="{{ field.id_for_label }}">{{ field.label }}</label></td>
+	                <td>{{ field }}</td>
+	            </tr>
+	        {% endfor %}
+    	</table>
+		<input type='submit' value='Save' />
+	</form>
+{% endblock content %}
+
