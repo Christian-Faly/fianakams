@@ -4,6 +4,7 @@ from .models import Olona, Vady
 from .querydb import query_taranaka, test_lahyvavy, query_dada, query_neny
 from .forms import OlonaForm, OlonaRawForm
 from .models import Fivondronana, Firaisana 
+from django.http import HttpResponse
 
 
 def get_taranaka(id_dadabe, id_bebe):    
@@ -60,8 +61,11 @@ def edit_olona_view(request, id_dadabe, id_bebe, id_olona):
     return render(request, 'edit_olona.html', context)
 
 # @login_required(login_url='/login/')
+# def edit_olona232_view(request):
+#     return edit_olona_view(request, 2, 3, 2)
+
 def edit_olona232_view(request):
-    return edit_olona_view(request, 2, 3, 2)
+    return HttpResponse("Hello World")
 
 # @login_required(login_url='/login/')
 def new_zanaka_view(request,id_dadabe,id_bebe):
