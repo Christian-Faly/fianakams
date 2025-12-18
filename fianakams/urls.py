@@ -21,7 +21,7 @@ from olonas.views import load_fivs,load_firs
 urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
 	path('admin/', admin.site.urls),
-    path('olonas/', include('olonas.urls')),
+    path('', include('olonas.urls')),
     path("load_fivs/", load_fivs, name="load_fivs"),
     path("load_firs/", load_firs, name="load_firs")
 ]
