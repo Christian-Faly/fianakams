@@ -61,11 +61,11 @@ def edit_olona_view(request, id_dadabe, id_bebe, id_olona):
     return render(request, 'edit_olona.html', context)
 
 # @login_required(login_url='/login/')
-# def edit_olona232_view(request):
-#     return edit_olona_view(request, 2, 3, 2)
-
 def edit_olona232_view(request):
-    return HttpResponse("Hello World")
+    return edit_olona_view(request, 2, 3, 2)
+
+# def edit_olona232_view(request):
+#     return HttpResponse("Hello World")
 
 # @login_required(login_url='/login/')
 def new_zanaka_view(request,id_dadabe,id_bebe):
