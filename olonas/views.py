@@ -39,7 +39,7 @@ def get_taranaka(id_dadabe, id_bebe):
     return info_taranaka
 
 
-@login_required(login_url='/login/')
+# @login_required(login_url='/login/')
 def edit_olona_view(request, id_dadabe, id_bebe, id_olona):
     obj=Olona.objects.get(id=id_olona)
     #print(obj)
@@ -59,11 +59,11 @@ def edit_olona_view(request, id_dadabe, id_bebe, id_olona):
 		}
     return render(request, 'edit_olona.html', context)
 
-@login_required(login_url='/login/')
+# @login_required(login_url='/login/')
 def edit_olona232_view(request):
     return edit_olona_view(request, 2, 3, 2)
 
-@login_required(login_url='/login/')
+# @login_required(login_url='/login/')
 def new_zanaka_view(request,id_dadabe,id_bebe):
     initial_data = {
         'ray':id_dadabe,
@@ -90,7 +90,7 @@ def new_zanaka_view(request,id_dadabe,id_bebe):
     return render(request, 'new_zanaka.html', context)
 
 
-@login_required(login_url='/login/')
+# @login_required(login_url='/login/')
 def new_zafy_view(request,id_dadabe,id_bebe,id_dada,id_neny):
     initial_data = {
         'ray':id_dada,
@@ -118,7 +118,7 @@ def new_zafy_view(request,id_dadabe,id_bebe,id_dada,id_neny):
     return render(request, 'new_zafy.html', context)
 
 
-@login_required(login_url='/login/')
+# @login_required(login_url='/login/')
 def new_vady_view(request,id_dadabe,id_bebe, id_tompony):
     initial_data = {
         'ray':0,
@@ -191,7 +191,7 @@ def new_rar_view(request,id_dadabe,id_bebe, lahy_vavy, dada_neny):
     return render(request, 'new_rar.html', context)
 
 
-@login_required(login_url='/login/')
+# @login_required(login_url='/login/')
 def new_vady_view(request,id_dadabe,id_bebe, id_tompony):
     initial_data = {
         'ray':0,
